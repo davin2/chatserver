@@ -1,0 +1,15 @@
+out
+tmp
+.history
+.idea*
+.DS_Store
+.cache
+.settings
+.classpath
+bin
+.class
+.project
+.ivy2
+*.iml
+.target
+*~
