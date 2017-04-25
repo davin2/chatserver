@@ -51,6 +51,9 @@ Also the Distributed Queue System can scale independently based on load.
 7. Current version assumes that client and server are running on localhost. However it can be changed to run clients on different machine with a simple change of config.
 8. Authentication assumes all users are valid.
 9. There is no user registration process.
+10. Does not handle same user logging in from multiple places. This can be easily supported by keeping multiple sessions for the user and sending the message to all the sessions.
+11. Does not send message if the destination user is offline. This can be achieved by fetching undelivered messages from DB when the user logs in.
+12. Only online and offline status values are handled but this can be extended to other states such as idle/away, typing, or some custom status.
 
 
 
@@ -60,8 +63,8 @@ Also the Distributed Queue System can scale independently based on load.
 2. cd to the chatserver dir
 3. compile by running javac $(find . -name "*.java")
 4. cd to src
-5. run server - java com.chatserver.server.ChatServer 5555
-6. open another terminal and run client java com.chatserver.client.ChatClient 5555
+5. run server - java com.chatserver.server.ChatServer 5678
+6. open another terminal and run client - java com.chatserver.client.ChatClient 5678
 7. Use the below commands to login, logout, send message etc.
 
  * Login - Login|<userId> example: Login|user1
