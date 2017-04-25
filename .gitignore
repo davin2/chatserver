@@ -7,7 +7,7 @@ tmp
 .settings
 .classpath
 bin
-.class
+*.class
 .project
 .ivy2
 *.iml

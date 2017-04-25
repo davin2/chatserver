@@ -38,6 +38,7 @@ Also the Distributed Queue System can scale independently based on load.
 4. Add unit tests
 5. Add clean shutdowns
 6. Use service discovery for db/queue and use circuit breakers to avoid cascading failures
+7. Add a build system
 
 ## Limitations and Assumptions
 
@@ -55,5 +56,18 @@ Also the Distributed Queue System can scale independently based on load.
 
 ## How to run
 
-1. Download the project
-2.
+1. Download the project from github
+2. cd to the chatserver dir
+3. compile by running javac $(find . -name "*.java")
+4. cd to src
+5. run server - java com.chatserver.server.ChatServer 5555
+6. open another terminal and run client java com.chatserver.client.ChatClient 5555
+7. Use the below commands to login, logout, send message etc.
+
+ * Login - Login|<userId> example: Login|user1
+ * Logout - Logout example: Logout
+ * Send - Send|<userId>|<message> example: Send|user2|hello there
+ * AddFriend - AddFriend|<userId> example: AddFriend|user2
+ * RemoveFriend - RemoveFriend|<userId> example: RemoveFriend|user2
+ * GetFriends - GetFriends example: GetFriends (returns comma separated list of <userId>:<status>)
+
