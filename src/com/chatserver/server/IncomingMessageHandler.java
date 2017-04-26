@@ -1,6 +1,7 @@
 package com.chatserver.server;
 
 import com.chatserver.db.DataStore;
+import com.chatserver.db.DatabaseException;
 import com.chatserver.model.Message;
 
 /**
@@ -15,7 +16,11 @@ public class IncomingMessageHandler {
         //may be send to a store and forward queue or save in DB for later delivery
         if(chatSession != null) {
             chatSession.sendMessage("Message received - from: " + message.getFromUserId() + ", msg: " + message.getMessage());
-            DataStore.getInstance().markDelivered(message);
+            try {
+                DataStore.getInstance().markDelivered(message);
+            } catch (DatabaseException e) {
+                //log error; DB seems to be down; retry and/or send an event to some error handling queue
+            }
         }
     }
 }

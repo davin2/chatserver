@@ -9,11 +9,11 @@ public interface ChatDataStore {
      * show the chat history.
      * @param message message to be saved
      */
-    public void saveMessage(Message message);
+    public void saveMessage(Message message) throws DatabaseException;
 
     /**
      * Saves the information that this message has been delivered
      * @param message message to be marked
      */
-    public void markDelivered(Message message);
+    public void markDelivered(Message message) throws DatabaseException ;
 }

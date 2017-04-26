@@ -79,12 +79,12 @@ public class DataStore implements FriendsDataStore, SessionDataStore, ChatDataSt
     }
 
 
-    public void saveMessage(Message message) {
+    public void saveMessage(Message message) throws DatabaseException {
         //save this message to DB
         //doing nothing for now
     }
 
-    public void markDelivered(Message message){
+    public void markDelivered(Message message) throws DatabaseException {
         //mark the message as delivered
         //ignoring for now
     }

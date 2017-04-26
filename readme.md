@@ -54,6 +54,7 @@ Also the Distributed Queue System can scale independently based on load.
 10. Does not handle same user logging in from multiple places. This can be easily supported by keeping multiple sessions for the user and sending the message to all the sessions.
 11. Does not send message if the destination user is offline. This can be achieved by fetching undelivered messages from DB when the user logs in.
 12. Only online and offline status values are handled but this can be extended to other states such as idle/away, typing, or some custom status.
+13. Some caching may be used to improve performance instead of looking up user session from DB every time.
 
 
 
