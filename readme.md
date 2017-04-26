@@ -73,5 +73,5 @@ Also the Distributed Queue System can scale independently based on load.
  * Send - Send|<userId>|<message> example: Send|user2|hello there
  * AddFriend - AddFriend|<userId> example: AddFriend|user2
  * RemoveFriend - RemoveFriend|<userId> example: RemoveFriend|user2
- * GetFriends - GetFriends example: GetFriends (returns comma separated list of <userId>:<status>)
+ * GetFriends - GetFriends example: GetFriends (returns comma separated list of userId:status)
 
