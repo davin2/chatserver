@@ -12,8 +12,8 @@ import java.util.concurrent.BlockingQueue;
  */
 public class QueueListener implements Runnable {
 
-    private BlockingQueue<Message> queue;
-    private IncomingMessageHandler incomingMessageHandler;
+    private final BlockingQueue<Message> queue;
+    private final IncomingMessageHandler incomingMessageHandler;
 
     public QueueListener(String queueName, IncomingMessageHandler incomingMessageHandler){
         this.queue = QueueManager.getInstance().getQueue(queueName);

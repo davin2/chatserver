@@ -19,9 +19,9 @@ public class DataStore implements FriendsDataStore, SessionDataStore, ChatDataSt
     private static final DataStore instance = new DataStore();
 
     //stores the friends list by userId
-    private Map<String, Set<String>> friends = new ConcurrentHashMap<>();
+    private final Map<String, Set<String>> friends = new ConcurrentHashMap<>();
 
-    private Map<String, String> sessions = new ConcurrentHashMap<>();
+    private final Map<String, String> sessions = new ConcurrentHashMap<>();
 
     public static DataStore getInstance(){
         return instance;

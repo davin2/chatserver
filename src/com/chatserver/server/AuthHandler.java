@@ -1,8 +1,8 @@
 package com.chatserver.server;
 
-public class AuthHandler {
+public final class AuthHandler {
 
-    public boolean login(String userId, ClientConnection clientConnection){
+    public final boolean login(String userId, ClientConnection clientConnection){
         if(isAuthenticated(userId)) {
             //add session so that user is considered online and other users can send message to this user
             ClientSessionManager.getInstance().addSession(userId, new ChatSession(clientConnection));
@@ -17,7 +17,7 @@ public class AuthHandler {
         }
     }
 
-    public void logout(String userId, ClientConnection clientConnection) {
+    public final void logout(String userId, ClientConnection clientConnection) {
         clientConnection.send("logging out...");
         //remove session - this means user is offline
         ClientSessionManager.getInstance().removeSession(userId);
@@ -25,7 +25,7 @@ public class AuthHandler {
         System.out.println(String.format("user %s logged out", userId));
     }
 
-    public boolean isAuthenticated(String userId){
+    private boolean isAuthenticated(String userId){
         //assume user is authenticated
         return true;
     }
